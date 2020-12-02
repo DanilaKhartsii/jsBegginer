@@ -1,0 +1,25 @@
+let game = {
+    run() {
+        while(true) {
+            const direction = mover.getDirection();
+            if(direction === null){
+                console.log('Игра окончена');
+                return;
+            }
+            const nextPoint = mover.getNextPosition(direction);
+            if(mover.playerMakeStep(nextPoint)) {
+                renderer.clear();
+                player.move(nextPoint);
+                renderer.render();
+            }  
+        }
+    },
+
+    init() {
+        console.log('Ваше положение на поле в виде о.');
+        renderer.render();
+        console.log('Введите game.run() и нажмите Enter для начала игры');
+    }
+};
+
+game.init();
